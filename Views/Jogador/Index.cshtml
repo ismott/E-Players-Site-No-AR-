@@ -1,0 +1,76 @@
+@model Jogador
+@{
+    ViewData["Title"] = "Jogadores";
+}
+
+<div class="cont_baner_times">
+    <h1>Cadastro de @ViewData["Title"]</h1>
+</div>
+
+<form class="cadastro_time" method="POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
+    <div class="cont_emblema">
+
+        <div class="emblema_nome">
+            <div class="nome_equipe">
+                <label>Id de Jogador</label>
+                <input type="text" required name="IdEquipe">
+            </div>
+            
+            <div class="nome_equipe">
+                <label>Id de Equipe</label>
+                <input type="text" required name="IdJogador">
+            </div>
+    
+            <div class="nome_equipe">
+                <label>Nome</label>
+                <input type="text" required name="Nome">
+            </div>
+            
+            <div class="nome_equipe">
+                <label>Email</label>
+                <input type="email" required name="Email">
+            </div>
+            
+            <div class="nome_equipe">
+                <label>Senha</label>
+                <input type="password" required name="Senha">
+            </div>
+       
+            <div class="cont_boton_times">
+                <button class="cadastrar_times" type="submit">Cadastrar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lista_times">
+        <h2>Lista de Jogadores</h2>
+    </div>
+
+    <div class="table_equipe">
+        <table>
+
+            <thead>
+                <th>IdJogador</th>
+                <th>Nome</th>
+                <th>Email</th>
+                @* <th>Excluir</th> *@
+            </thead>
+            <tbody>
+                <tr>
+                    @foreach (Jogador j in ViewBag.jogadores)
+                    {
+                        <tr>
+                            <td>@j.IdJogador</td>
+                            <td>@j.Nome</td>
+                            <td>@j.Email</td>
+                            @* <td><a asp-area="" asp-controller="Jogador" asp-action="Excluir" asp-route-id="@j.IdJogador" >Excluir</a></td> *@
+                        </tr>
+                    }
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</form>

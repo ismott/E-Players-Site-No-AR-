@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="cont_baner_times">
+    <h1>Cadastro de @ViewData["Title"]</h1>
+</div>
+
+<form class="cadastro_time" method="POST" action='@Url.Action("Logar")' enctype="multipart/form-data">
+    <div class="cont_emblema">
+
+        <div class="emblema_nome">
+            <div class="nome_equipe">
+                <label>Email</label>
+                <input type="email" required name="Email">
+            </div>
+    
+            <div class="nome_equipe">
+                <label>Senha</label>
+                <input type="password" required name="Senha">
+            </div>
+
+            <div class="error">@TempData.Peek("MensagemErro")</div>
+            
+            <div class="cont_boton_times">
+                <button class="cadastrar_times" type="submit">Entrar</button>
+            </div>
+        </div>
+
+    </div>
+</form>

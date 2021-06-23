@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BEEPlayers</title>
+    <link rel="stylesheet" href="~/css/estilo.css" />
+</head>
+
+<body>
+    <header>
+        <div class="conteiner cont_header">
+            <a asp-area="" asp-cntroller="Home" asp-action="Index"><img src="/assets/logo.svg" alt=""></a>
+            <nav class="nav_header">
+                <a asp-area="" asp-controller="Home" asp-action="Index" target="_parent">Início</a>
+                <a href="#noticias" target="_parent">Horários</a>
+                <a href="#">Campeonatos</a>
+                <a href="#">Resultados</a>
+                <a href="#noticias" target="_parent">Notícia</a>
+
+                @if (ViewBag.Username != null)
+                {
+                    <li style="color: white;">Olá @ViewBag.Username</li>
+                    <a asp-area="" asp-controller="Login" asp-action="Logout" target="_parent">Logout</a>
+                }else{
+                    <a asp-area="" asp-controller="Login" asp-action="Index" target="_parent">Login</a>
+                }
+
+            </nav>
+        </div>
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="conteiner cont_footer">
+            <div class="cont_links_pg">
+                <div class="links_uteis">
+                    <h2>Links Úteis</h2>
+                    <ul>
+                        <li>Regras de utilização</li>
+                        <li>Suporte</li>
+                        <li>Central de Ajuda</li>
+                        <li>Contato</li>
+                    </ul>
+                </div>
+                <div class="paginas">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li>Início</li>
+                        <li>Campeonatos</li>
+                        <li>Resultados</li>
+                        <li>Notícias</li>
+                        <li>Login/Cadastro</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo_footer">
+                <img src="assets/logo.svg" alt="">
+            </div>
+            <div class="cadastro_social">
+                <span>Faça parte do nosso clan, assine nossa newsletter!</span>
+                <div class="cadastrar_footer">
+                    <input type="email" placeholder="e-mail">
+                    <a href="#"><button class="botao_footer">Cadastrar</button></a>
+                </div>
+                <div class="siga_nos">
+                    <span>Siga-nos em:</span>
+                    <div class="img_social">
+                        <img src="assets/facebook.png" alt="">
+                        <img src="assets/instagram.png" alt="">
+                        <img src="assets/youtube.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
